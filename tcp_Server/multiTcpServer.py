@@ -12,11 +12,14 @@ HOST = "0.0.0.0"
 PORT = 25565
 SOCK_ADDR = (HOST, PORT)
 ###
+
+
 class SocketClientObject(object):
     def __init__(self, socket, address ):
         self.socket = socket
         self.address = address
 ###
+
 
 class ClientThread(threading.Thread):
     def __init__(self, client_object):
@@ -33,13 +36,12 @@ class ClientThread(threading.Thread):
             data = self.client_object.socket.recv(1024)
             print ">> Received data: ", data, " from: ", self.client_object.address
             self.client_object.socket.sendall("qqq")
-
         self.client_object.socket.close()
 ###
 
 
 def main():
-        login.Login()
+        #login.Login()
         try:
             sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             sock.bind(SOCK_ADDR)
