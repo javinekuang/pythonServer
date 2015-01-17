@@ -34,14 +34,16 @@ class ClientThread(threading.Thread):
             if counter > 10:
                 self.flag = False
             data = self.client_object.socket.recv(1024)
+            #decode(data)
             print ">> Received data: ", data, " from: ", self.client_object.address
+
             self.client_object.socket.sendall("qqq")
         self.client_object.socket.close()
 ###
 
 
 def main():
-        #login.Login()
+        login.Login()
         try:
             sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             sock.bind(SOCK_ADDR)
