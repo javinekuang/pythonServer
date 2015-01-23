@@ -23,7 +23,7 @@ parser = ArgumentParser(description='Multi-threaded TCP Client')
 # Add optional arguments, with given default values if user gives no args
 parser.add_argument('-r', '--requests', default=10, type=int, help='Total number of requests to send to server')
 parser.add_argument('-w', '--workerThreads', default=5, type=int, help='Max number of worker threads to be created')
-parser.add_argument('-i', '--ip', default='127.0.0.1', help='IP address to connect over')
+parser.add_argument('-i', '--ip', default='114.215.83.99', help='IP address to connect over')
 parser.add_argument('-p', '--port', default=25565, type=int, help='Port over which to connect')
 
 # Get the arguments

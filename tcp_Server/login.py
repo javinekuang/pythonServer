@@ -20,7 +20,7 @@ class Login():
         cn.close()
 
     @staticmethod
-    def save_login(self,username,password):
+    def save_login(username,password):
         cn = sqlite3.connect("userInfo.db")
         cur = cn.cursor()
         cur.execute("insert into user values (?,?,?)",(None,username,password))
@@ -28,7 +28,8 @@ class Login():
         cn.commit()
         cn.close()
 
-    def save_mac(self,username,mac):
+    @staticmethod
+    def save_mac(username,mac):
         cn = sqlite3.connect("userInfo.db")
         cur = cn.cursor()
         cur.execute("insert into mac values (?,?,?)",(None,username,mac))
@@ -36,7 +37,8 @@ class Login():
         cn.commit()
         cn.close()
 
-    def get_login(self,username):
+    @staticmethod
+    def get_login(username):
         cn = sqlite3.connect("userInfo.db")
         cur = cn.cursor()
         cur.execute("select * from user where username like ?",(username,))
@@ -46,10 +48,22 @@ class Login():
         cn.close()
         return info
 
-    def get_mac(self,username):
+    @staticmethod
+    def get_mac(username):
         cn = sqlite3.connect("userInfo.db")
         cur = cn.cursor()
         cur.execute("select * from mac where username like ?",(username,))
+        info = cur.fetchall()
+        cur.close()
+        cn.commit()
+        cn.close()
+        return info
+
+    @staticmethod
+    def get_by_mac(mac):
+        cn = sqlite3.connect("userInfo.db")
+        cur = cn.cursor()
+        cur.execute("select * from mac where mac like ?",(mac,))
         info = cur.fetchall()
         cur.close()
         cn.commit()

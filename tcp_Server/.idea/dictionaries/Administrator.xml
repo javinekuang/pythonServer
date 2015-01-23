@@ -3,6 +3,11 @@
     <words>
       <w>clientsocket</w>
       <w>exsits</w>
+      <w>mlist</w>
+      <w>mqueue</w>
+      <w>myqueue</w>
+      <w>rdata</w>
+      <w>recv</w>
     </words>
   </dictionary>
 </component>
